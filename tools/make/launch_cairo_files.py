@@ -5,12 +5,12 @@ import readline
 import time
 
 import inquirer
-
-from tools.make.utils import create_directory, get_files_from_folders
+from utils import create_directory, get_files_from_folders
 
 # Constants
 CAIRO_PROGRAMS_FOLDERS = [
     "tests/fustat_programs/",
+    "src/",
 ]
 BUILD_DIR = "build"
 PROFILING_DIR = os.path.join(BUILD_DIR, "profiling")
@@ -174,6 +174,7 @@ class CairoRunner:
         create_directory(f"{PROFILING_DIR}/{self.filename}")
 
         compiled_path = self.compile_cairo_file()
+        # print(f"Compiled Cairo file: {compiled_path}")
         run_command = self.construct_run_command(compiled_path)
         print(f"Running {self.filename_dot_cairo} ... ")
         t0 = time.time()

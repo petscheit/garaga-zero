@@ -3,7 +3,7 @@ import random
 
 from garaga.definitions import CURVES, CurveID
 
-from tools.make.utils import create_directory
+from ..tools.make.utils import create_directory
 
 random.seed(0)
 INPUTS_DIR = "build/program_inputs"
