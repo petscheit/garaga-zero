@@ -336,6 +336,10 @@ class MapToCurveG2FinalizeQuadResCircuit(BaseModuloCircuit):
         circuit.extend_output(intermediate_values[0])  # x_affine
         circuit.extend_output(intermediate_values[1])  # y_affine
 
+        print("GARAGA-ZERO - FINAL")
+        print(f"x_affine: {intermediate_values[0]}")
+        print(f"y_affine: {intermediate_values[1]}")
+
         return circuit
 
 
@@ -380,6 +384,10 @@ class MapToCurveG2FinalizeNonQuadResCircuit(BaseModuloCircuit):
 
         circuit.extend_output(intermediate_values[0])  # x_affine
         circuit.extend_output(intermediate_values[1])  # y_affine
+
+        print("GARAGA-ZERO - FINAL")
+        print(f"x_affine: {intermediate_values[0]}")
+        print(f"y_affine: {intermediate_values[1]}")
 
         return circuit
 
