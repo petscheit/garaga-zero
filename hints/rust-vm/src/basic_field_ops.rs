@@ -254,18 +254,11 @@ pub fn hint_sum_inv_mod_p(
     let sum_val = (&x.0 + &y.0) % &p.0;
 
     let sum_inv_val = sum_val.modinv(&p.0).ok_or_else(|| {
-        HintError::CustomHint(
-            format!(
-                "Modular inverse does not exist for sum {} modulo {}",
-                sum_val, p.0
-            )
-            .into_boxed_str(),
-        )
+        HintError::CustomHint(format!("Modular inverse does not exist for sum {} modulo {}", sum_val, p.0).into_boxed_str())
     })?;
     let sum_inv = UInt384(sum_inv_val);
 
-    let sum_inv_addr =
-        get_relocatable_from_var_name("sum_inv_d0", vm, &hint_data.ids_data, &hint_data.ap_tracking)?;
+    let sum_inv_addr = get_relocatable_from_var_name("sum_inv_d0", vm, &hint_data.ids_data, &hint_data.ap_tracking)?;
 
     sum_inv.to_memory(vm, sum_inv_addr)?;
 
